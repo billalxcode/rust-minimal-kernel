@@ -1,0 +1,19 @@
+[package]
+name = "kernel"
+version = "0.1.0"
+edition = "2021"
+authors = ["OS Developer <osdev@example.com>"]
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+# OS development utilities from our workspace
+osdev-utils = { path = "../lib/osdev-utils" }
+bootloader = { path = "../bootloader" }
+
+# External no_std compatible crates
+# spin.workspace = true
+# bitflags.workspace = true
+
+[[bin]]
+name = "kernel"
+path = "src/main.rs"

@@ -1,0 +1,14 @@
+[package]
+name = "bootloader"
+version = "0.1.0"
+edition = "2021"
+authors = ["OS Developer <osdev@example.com>"]
+license = "MIT OR Apache-2.0"
+description = "Custom bootloader for Rust OS"
+
+[lib]
+name = "bootloader"
+path = "src/lib.rs"
+
+[dependencies]
+osdev-utils = { path = "../lib/osdev-utils" }
