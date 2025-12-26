@@ -1,7 +1,7 @@
 [build]
 target = "i386-osdev-rust.json"
 
-[target.i386-osdev-rust]
+[target.'cfg(target_arch = "x86")']
 rustflags = [
   "-C",
   "relocation-model=static",

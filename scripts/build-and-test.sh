@@ -13,10 +13,10 @@ echo "[*] Running tests..."
 
 echo ""
 echo "🧪 Test 1: Direct kernel boot"
-echo "   Command: qemu-system-x86_64 -kernel target/i386-osdev-rust/release/kernel -m 512M -nographic"
+echo "   Command: qemu-system-x86_64 -kernel target/x86_64-unknown-none/release/kernel -m 512M -nographic"
 echo "   Expected: VGA text output showing kernel status messages"
 
-timeout 3 qemu-system-x86_64 -kernel target/i386-osdev-rust/release/kernel -m 512M -nographic 2>/dev/null || true
+timeout 3 qemu-system-x86_64 -kernel target/x86_64-unknown-none/release/kernel -m 512M -nographic 2>/dev/null || true
 
 echo ""
 echo "✅ Workspace build and test completed!"

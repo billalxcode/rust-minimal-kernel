@@ -30,6 +30,11 @@ run-text: build
 	@echo "📺 Running kernel with text output..."
 	@qemu-system-x86_64 -kernel kernel/target/i386-osdev-rust/release/kernel -m 512M -nographic
 
+# Run kernel with root filesystem
+run-with-root: build
+	@echo "🚀 Running kernel with root filesystem..."
+	@qemu-system-x86_64 -kernel kernel/target/i386-osdev-rust/release/kernel -m 512M -initrd root -nographic
+
 # Setup development environment
 setup:
 	@echo "⚙️  Setting up development environment..."

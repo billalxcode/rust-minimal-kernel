@@ -6,13 +6,11 @@ authors = ["OS Developer <osdev@example.com>"]
 license = "MIT OR Apache-2.0"
 
 [dependencies]
-# OS development utilities from our workspace
-osdev-utils = { path = "../lib/osdev-utils" }
+# Bootloader utilities from our workspace
 bootloader = { path = "../bootloader" }
 
-# External no_std compatible crates
-# spin.workspace = true
-# bitflags.workspace = true
+# Use our own VGA utilities instead of external crates
+osdev-utils = { path = "../lib/osdev-utils" }
 
 [[bin]]
 name = "kernel"

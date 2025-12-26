@@ -25,6 +25,15 @@ cp kernel/target/i386-osdev-rust/release/kernel build/isodir/boot/kernel.elf
 echo "[*] Copying GRUB configuration..."
 cp build/grub.cfg build/isodir/boot/grub/grub.cfg
 
+# Copy root filesystem to ISO
+echo "[*] Copying root filesystem..."
+if [ -d "root" ]; then
+    cp -r root/* build/isodir/ 2>/dev/null || true
+    echo "    Root filesystem copied to ISO"
+else
+    echo "    Warning: root directory not found"
+fi
+
 # Try to create bootable ISO with different approaches
 echo "[*] Creating bootable ISO..."
 
