@@ -37,35 +37,21 @@ fi
 # Try to create bootable ISO with different approaches
 echo "[*] Creating bootable ISO..."
 
-# First try with grub-mkrescue
-if command -v grub-mkrescue >/dev/null 2>&1; then
-    echo "    Using grub-mkrescue..."
-    grub-mkrescue -o build/osdev.iso build/isodir
-else
-    echo "    grub-mkrescue not available, using alternative method..."
-    
-    # Create ISO manually with xorriso
-    mkdir -p build/isodir/boot/grub/i386-pc
-    
-    # Try to find GRUB core image
-    if [ -f /usr/lib/grub/i386-pc/boot.img ]; then
-        cp /usr/lib/grub/i386-pc/boot.img build/isodir/boot/grub/i386-pc/
-    fi
-    
-    if [ -f /usr/lib/grub/i386-pc/cdboot.img ]; then
-        cp /usr/lib/grub/i386-pc/cdboot.img build/isodir/boot/grub/i386-pc/
-    fi
-    
-    # Create ISO with xorriso
-    xorriso -as mkisofs \
-        -R -J \
-        -b boot/grub/i386-pc/cdboot.img \
-        -no-emul-boot \
-        -boot-load-size 4 \
-        -boot-info-table \
-        -o build/osdev.iso \
-        build/isodir
-fi
+# Use xorriso directly with El Torito for BIOS boot
+echo "    Using xorriso with El Torito..."
+
+# Create a simple boot directory structure
+mkdir -p build/isodir/boot/grub
+
+# Create ISO with proper boot configuration
+xorriso -as mkisofs \
+    -R -J -joliet-long \
+    -o build/osdev.iso \
+    -V "RUST_OS" \
+    -no-emul-boot \
+    -boot-load-size 4 \
+    -boot-info-table \
+    build/isodir
 
 echo ""
 echo "✅ ISO created successfully: build/osdev.iso"

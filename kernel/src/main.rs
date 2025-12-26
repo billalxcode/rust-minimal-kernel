@@ -36,6 +36,13 @@ fn kernel_main() -> ! {
         ColorCode::new(Color::Blue, Color::Black),
     );
 
+    vga.write_string(
+        b"Hello World",
+        1,
+        0,
+        ColorCode::new(Color::Green, Color::Black),
+    );
+    
     // Infinite loop with halt
     loop {
         x86_halt();

@@ -2,8 +2,8 @@
 name = "bootloader"
 version = "0.1.0"
 edition = "2021"
-authors = ["OS Developer <osdev@example.com>"]
-license = "MIT OR Apache-2.0"
+authors = ["Billal Fauzan"]
+license = "MIT"
 description = "Custom bootloader for Rust OS"
 
 [lib]

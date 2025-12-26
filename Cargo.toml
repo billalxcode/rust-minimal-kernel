@@ -13,7 +13,7 @@ bitflags = "2.0"
 
 [workspace.package]
 version = "0.1.0"
-authors = ["OS Developer"]
+authors = ["Billal Fauzan"]
 edition = "2021"
 license = "MIT"
 

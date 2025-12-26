@@ -23,7 +23,7 @@ iso: build
 # Run kernel in QEMU
 run: build
 	@echo "🚀 Running kernel in QEMU..."
-	@qemu-system-x86_64 -kernel kernel/target/i386-osdev-rust/release/kernel -m 512M
+	@qemu-system-i386 -kernel kernel/target/i386-osdev-rust/release/kernel -m 512M -nographic
 
 # Run with VGA output
 run-text: build
