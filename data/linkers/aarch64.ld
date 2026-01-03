@@ -2,9 +2,9 @@ ENTRY(_start)
 
 SECTIONS
 {
-   . := 4M
+   . = 0x400000;
 
-   .data {
-        
-   }
+   .text : { *(.text) }
+   .data : { *(.data) }
+   .bss : { *(.bss) }
 }
